@@ -6,7 +6,8 @@
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "5MinuteRot"
+    "default_title": "5MinuteRot",
+    "default_icon": "logo.png"
   },
   "background": {
     "service_worker": "background.js"
