@@ -1,0 +1,153 @@
+/* Container & Layout */
+#focus-blocker-overlay {
+  all: initial;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505;
+  color: white;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  overflow: hidden; /* Prevents scrollbars */
+}
+
+.blocker-content {
+  width: 95%;
+  max-width: 1200px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; /* Perfectly spaces items vertically */
+  align-items: center;
+}
+
+/* Heading with Icons on same line */
+.witty-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 0;
+  /* Massive but responsive font size */
+  font-size: clamp(24px, 6vw, 80px);
+  font-weight: 900;
+  white-space: nowrap; /* Forces one line */
+  text-transform: uppercase;
+}
+
+.warn-icon {
+  font-size: 0.8em; /* Icons scale with the text */
+}
+
+.blink-text {
+  color: #ff003c;
+  animation: focus-blink 1s infinite;
+}
+
+/* Single Line Alternatives Row */
+.alternatives-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* FORCES ALL ITEMS ON ONE LINE */
+  justify-content: space-around;
+  width: 100%;
+  gap: 10px;
+}
+
+.alt-item {
+  flex: 1; /* Each item takes equal space */
+  min-width: 0; /* Allows items to shrink below their content size */
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 5px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alt-item:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+.alt-item:hover .label {
+  color: black !important;
+}
+
+/* Responsive Icons and Labels */
+.icon {
+  font-size: clamp(30px, 5vh, 60px);
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: clamp(10px, 1.2vw, 14px);
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap; /* Keeps label on one line */
+}
+
+/* Other Styling */
+.status-badge {
+  background: #fbff00;
+  color: black;
+  padding: 5px 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.witty-insult {
+  font-size: clamp(14px, 2vh, 20px);
+  color: #666;
+  font-style: italic;
+}
+
+#unlock-btn {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 15px 40px;
+  background: #ff003c !important;
+  color: white !important;
+  font-weight: 900 !important;
+  font-size: clamp(16px, 2.5vh, 22px) !important;
+  border: 4px solid #30000b;
+  box-shadow: 6px 6px 0px #30000b;
+  transition: 0.1s;
+}
+
+#unlock-btn:hover {
+  background: #fbff00 !important;
+  color: black !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px #30000b;
+}
+
+@keyframes focus-blink {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.highlight-green {
+  color: #00ff88;
+}
+.highlight-blue {
+  color: #00d2ff;
+}
+.highlight-orange {
+  color: #ffa502;
+}
+.highlight-gold {
+  color: #eccc68;
+}
+.highlight-pink {
+  color: #ff6b81;
+}
