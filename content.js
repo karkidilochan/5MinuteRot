@@ -23,6 +23,7 @@ function showOverlay() {
   if (document.getElementById("focus-blocker-overlay")) return;
 
   const overlay = document.createElement("div");
+  let confirmState = true;
   overlay.id = "focus-blocker-overlay";
   overlay.innerHTML = `
     <div class="blocker-content">
@@ -66,9 +67,16 @@ function showOverlay() {
   `;
   document.documentElement.appendChild(overlay);
 
-  document.getElementById("unlock-btn").onclick = () => {
-    const expiry = Date.now() + 5 * 60 * 1000;
-    chrome.storage.local.set({ globalUnlockExpiry: expiry });
+  const unlockBtn = document.getElementById("unlock-btn");
+
+  unlockBtn.onclick = () => {
+    if (confirmState) {
+      unlockBtn.textContent = "Are you sure?";
+      confirmState = false;
+    } else {
+      const expiry = Date.now() + 5 * 60 * 1000;
+      chrome.storage.local.set({ globalUnlockExpiry: expiry });
+    }
   };
 }
 
